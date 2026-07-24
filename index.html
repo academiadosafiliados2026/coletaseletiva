@@ -2,12 +2,18 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <meta
         name="description"
-        content="Informações sobre os dias da coleta seletiva nos bairros e orientações para separar os materiais."
+        content="Informações sobre a coleta seletiva no Bairro Concórdia, dia de recolhimento e materiais recicláveis aceitos."
     >
-    <title>Coleta Seletiva no Seu Bairro</title>
+
+    <title>Coleta Seletiva no Bairro Concórdia</title>
 
     <style>
         :root {
@@ -22,7 +28,7 @@
             --texto: #1f2937;
             --texto-claro: #4b5563;
             --borda: #d8e7da;
-            --sombra: 0 10px 30px rgba(20, 83, 45, 0.10);
+            --sombra: 0 10px 30px rgba(20, 83, 45, 0.12);
         }
 
         * {
@@ -43,8 +49,8 @@
         }
 
         img {
-            max-width: 100%;
             display: block;
+            max-width: 100%;
         }
 
         .container {
@@ -52,11 +58,14 @@
             margin: 0 auto;
         }
 
+        /* Menu */
+
         .menu {
-            background: var(--verde-escuro);
             position: sticky;
             top: 0;
             z-index: 1000;
+            background: var(--verde-escuro);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16);
         }
 
         .menu-conteudo {
@@ -76,33 +85,53 @@
 
         .menu-links {
             display: flex;
+            align-items: center;
             gap: 24px;
         }
 
         .menu-links a {
             color: var(--branco);
-            text-decoration: none;
             font-size: 15px;
             font-weight: bold;
+            text-decoration: none;
         }
 
         .menu-links a:hover {
-            text-decoration: underline;
+            color: var(--amarelo);
         }
 
+        /* Banner */
+
         .hero {
-            background:
-                linear-gradient(rgba(20, 83, 45, 0.82), rgba(21, 128, 61, 0.82)),
-                url("banner-coleta.png") center center / cover no-repeat;
+            min-height: 650px;
+            display: flex;
+            align-items: center;
             color: var(--branco);
-            padding: 90px 0;
+
+            background-color: var(--verde-escuro);
+
+            background-image:
+                linear-gradient(
+                    90deg,
+                    rgba(20, 83, 45, 0.97) 0%,
+                    rgba(20, 83, 45, 0.91) 30%,
+                    rgba(20, 83, 45, 0.72) 55%,
+                    rgba(20, 83, 45, 0.20) 100%
+                ),
+                url("./imagens/banner-coleta.png");
+
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
         }
 
         .hero-grid {
+            width: 100%;
             display: grid;
             grid-template-columns: 1.15fr 0.85fr;
             align-items: center;
-            gap: 40px;
+            gap: 45px;
+            padding: 80px 0;
         }
 
         .etiqueta {
@@ -122,17 +151,20 @@
             margin-bottom: 20px;
             font-size: clamp(40px, 6vw, 68px);
             line-height: 1.06;
+            text-shadow: 0 3px 12px rgba(0, 0, 0, 0.28);
         }
 
         .hero h1 strong {
+            display: block;
             color: var(--amarelo);
         }
 
         .hero-texto {
-            max-width: 720px;
-            margin-bottom: 26px;
-            font-size: 20px;
+            max-width: 680px;
+            margin-bottom: 28px;
             color: #f1fff3;
+            font-size: 20px;
+            text-shadow: 0 2px 7px rgba(0, 0, 0, 0.30);
         }
 
         .botao {
@@ -141,35 +173,42 @@
             border-radius: 10px;
             background: var(--branco);
             color: var(--verde-escuro);
-            text-decoration: none;
             font-weight: bold;
+            text-decoration: none;
             box-shadow: var(--sombra);
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease;
         }
 
         .botao:hover {
+            transform: translateY(-2px);
             background: var(--verde-claro);
         }
 
+        /* Cartão do bairro */
+
         .cartao-bairro {
             padding: 34px;
+            border: 1px solid rgba(255, 255, 255, 0.42);
             border-radius: 22px;
-            background: rgba(255, 255, 255, 0.18);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            background: rgba(20, 83, 45, 0.83);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(7px);
         }
 
         .cartao-bairro span {
             display: block;
             margin-bottom: 6px;
+            color: #eafaea;
             font-size: 14px;
             font-weight: bold;
-            color: #eafaea;
             text-transform: uppercase;
         }
 
         .cartao-bairro h2 {
             margin-bottom: 20px;
+            color: var(--branco);
             font-size: 38px;
         }
 
@@ -177,8 +216,8 @@
             padding: 24px;
             border-radius: 16px;
             background: var(--branco);
-            text-align: center;
             color: var(--verde-escuro);
+            text-align: center;
             box-shadow: var(--sombra);
         }
 
@@ -191,33 +230,38 @@
         }
 
         .dia-coleta strong {
+            display: block;
             font-size: 34px;
             line-height: 1.2;
         }
 
         .cartao-bairro p {
             margin-top: 18px;
-            font-size: 18px;
             color: #f3fff4;
+            font-size: 18px;
             text-align: center;
         }
 
+        /* Aviso */
+
         .aviso-rapido {
+            padding: 16px 20px;
             background: var(--amarelo);
             color: #3d2f00;
-            padding: 16px 0;
             font-size: 17px;
             font-weight: bold;
             text-align: center;
         }
+
+        /* Seções */
 
         section {
             padding: 78px 0;
         }
 
         .titulo-secao {
-            max-width: 760px;
-            margin-bottom: 34px;
+            max-width: 780px;
+            margin-bottom: 36px;
         }
 
         .titulo-secao span {
@@ -242,6 +286,8 @@
             font-size: 17px;
         }
 
+        /* Como funciona */
+
         .funcionamento {
             background: var(--branco);
         }
@@ -254,9 +300,9 @@
 
         .passo {
             padding: 30px;
+            border: 1px solid var(--borda);
             border-radius: 18px;
             background: var(--verde-fundo);
-            border: 1px solid var(--borda);
             box-shadow: var(--sombra);
         }
 
@@ -284,6 +330,8 @@
             color: var(--texto-claro);
         }
 
+        /* Materiais */
+
         .materiais {
             background: #f7fcf8;
         }
@@ -296,30 +344,39 @@
 
         .material {
             overflow: hidden;
-            background: var(--branco);
             border: 1px solid var(--borda);
             border-radius: 18px;
+            background: var(--branco);
             box-shadow: var(--sombra);
-            transition: transform 0.2s ease;
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
         }
 
         .material:hover {
-            transform: translateY(-4px);
+            transform: translateY(-5px);
+            box-shadow: 0 16px 35px rgba(20, 83, 45, 0.17);
         }
 
         .material-imagem {
-            background: linear-gradient(180deg, #eef8f0 0%, #dff3e3 100%);
-            padding: 18px;
-            height: 230px;
+            height: 240px;
+            padding: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
+            background:
+                linear-gradient(
+                    180deg,
+                    #eef8f0 0%,
+                    #dff3e3 100%
+                );
         }
 
         .material-imagem img {
             width: 100%;
             height: 100%;
             object-fit: contain;
+            border-radius: 10px;
         }
 
         .material-conteudo {
@@ -335,6 +392,8 @@
         .material p {
             color: var(--texto-claro);
         }
+
+        /* Preparação */
 
         .preparacao {
             background: var(--verde-claro);
@@ -365,8 +424,8 @@
 
         .lista li {
             position: relative;
-            padding-left: 28px;
             margin-bottom: 14px;
+            padding-left: 28px;
             color: var(--texto-claro);
         }
 
@@ -386,14 +445,22 @@
             font-weight: bold;
         }
 
+        /* Chamada final */
+
         .chamada-final {
             padding-top: 0;
+            background: var(--verde-claro);
         }
 
         .chamada-conteudo {
             padding: 46px;
             border-radius: 22px;
-            background: linear-gradient(135deg, var(--verde-escuro), var(--verde-medio));
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--verde-escuro),
+                    var(--verde-medio)
+                );
             color: var(--branco);
             text-align: center;
             box-shadow: var(--sombra);
@@ -407,36 +474,53 @@
         .chamada-conteudo p {
             max-width: 760px;
             margin: 0 auto;
-            font-size: 18px;
             color: #ebffef;
+            font-size: 18px;
         }
 
+        /* Rodapé */
+
         footer {
+            padding: 30px 20px;
             background: #0c2f19;
             color: #d9eadc;
             text-align: center;
-            padding: 30px 20px;
         }
 
         footer strong {
             color: var(--branco);
         }
 
+        /* Responsividade */
+
         @media (max-width: 980px) {
-            .hero-grid,
-            .passos-grid,
-            .materiais-grid {
-                grid-template-columns: 1fr 1fr;
+            .hero-grid {
+                grid-template-columns: 1fr;
             }
 
-            .hero-grid {
+            .cartao-bairro {
+                max-width: 600px;
+            }
+
+            .materiais-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 760px) {
+            .passos-grid,
+            .preparacao-grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        @media (max-width: 700px) {
+        @media (max-width: 650px) {
             .container {
                 width: min(100% - 28px, 1120px);
+            }
+
+            .menu {
+                position: relative;
             }
 
             .menu-conteudo {
@@ -451,6 +535,19 @@
             }
 
             .hero {
+                min-height: auto;
+
+                background-image:
+                    linear-gradient(
+                        rgba(20, 83, 45, 0.91),
+                        rgba(20, 83, 45, 0.91)
+                    ),
+                    url("./imagens/banner-coleta.png");
+
+                background-position: 68% center;
+            }
+
+            .hero-grid {
                 padding: 60px 0;
             }
 
@@ -458,50 +555,71 @@
                 font-size: 42px;
             }
 
+            .hero-texto {
+                font-size: 18px;
+            }
+
+            .cartao-bairro {
+                padding: 26px;
+            }
+
+            .cartao-bairro h2 {
+                font-size: 31px;
+            }
+
             .dia-coleta strong {
                 font-size: 28px;
-            }
-
-            .passos-grid,
-            .materiais-grid,
-            .preparacao-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .material-imagem {
-                height: 210px;
-            }
-
-            .cartao-bairro,
-            .chamada-conteudo {
-                padding: 28px 22px;
             }
 
             section {
                 padding: 58px 0;
             }
+
+            .materiais-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .material-imagem {
+                height: 280px;
+            }
+
+            .chamada-conteudo {
+                padding: 30px 22px;
+            }
+
+            .chamada-conteudo h2 {
+                font-size: 28px;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <nav class="menu">
         <div class="container menu-conteudo">
-            <a class="logo" href="#inicio">Coleta Seletiva</a>
+
+            <a class="logo" href="#inicio">
+                Coleta Seletiva
+            </a>
 
             <div class="menu-links">
                 <a href="#como-funciona">Como funciona</a>
                 <a href="#materiais">O que separar</a>
                 <a href="#preparar">Como preparar</a>
             </div>
+
         </div>
     </nav>
 
     <header class="hero" id="inicio">
         <div class="container hero-grid">
 
-            <div>
-                <span class="etiqueta">Atenção, moradores</span>
+            <div class="hero-conteudo">
+
+                <span class="etiqueta">
+                    Atenção, moradores
+                </span>
 
                 <h1>
                     A coleta seletiva agora está no
@@ -514,11 +632,16 @@
                     papel, plástico, vidro e metal.
                 </p>
 
-                <a class="botao" href="#como-funciona">Veja como participar</a>
+                <a class="botao" href="#como-funciona">
+                    Veja como participar
+                </a>
+
             </div>
 
             <aside class="cartao-bairro">
+
                 <span>Bairro atendido</span>
+
                 <h2>Concórdia</h2>
 
                 <div class="dia-coleta">
@@ -529,6 +652,7 @@
                 <p>
                     Deixe os materiais separados e preparados para a coleta.
                 </p>
+
             </aside>
 
         </div>
@@ -544,40 +668,53 @@
             <div class="container">
 
                 <div class="titulo-secao">
+
                     <span>Participe da coleta</span>
+
                     <h2>Como funciona no bairro?</h2>
+
                     <p>
-                        Os moradores separam os materiais recicláveis e os disponibilizam
-                        no dia informado para o recolhimento.
+                        Os moradores separam os materiais recicláveis
+                        e os disponibilizam no dia informado para o recolhimento.
                     </p>
+
                 </div>
 
                 <div class="passos-grid">
+
                     <article class="passo">
                         <div class="numero">1</div>
+
                         <h3>Separe em casa</h3>
+
                         <p>
-                            Não misture materiais recicláveis com restos de comida,
-                            resíduos de banheiro ou lixo comum.
+                            Não misture materiais recicláveis com restos de
+                            comida, resíduos de banheiro ou lixo comum.
                         </p>
                     </article>
 
                     <article class="passo">
                         <div class="numero">2</div>
+
                         <h3>Prepare os materiais</h3>
+
                         <p>
-                            Esvazie as embalagens, retire restos de alimentos e mantenha
-                            os materiais secos.
+                            Esvazie as embalagens, retire restos de alimentos
+                            e mantenha os materiais secos.
                         </p>
                     </article>
 
                     <article class="passo">
                         <div class="numero">3</div>
+
                         <h3>Entregue na quinta-feira</h3>
+
                         <p>
-                            Disponibilize os recicláveis no dia da coleta, separados do lixo comum.
+                            Disponibilize os recicláveis no dia da coleta,
+                            separados do lixo comum.
                         </p>
                     </article>
+
                 </div>
 
             </div>
@@ -587,61 +724,101 @@
             <div class="container">
 
                 <div class="titulo-secao">
+
                     <span>Materiais recolhidos</span>
+
                     <h2>O que separar para a coleta seletiva?</h2>
+
                     <p>
-                        Separe os principais materiais recicláveis utilizados no dia a dia.
+                        Separe os principais materiais recicláveis
+                        utilizados no dia a dia.
                     </p>
+
                 </div>
 
                 <div class="materiais-grid">
 
                     <article class="material">
+
                         <div class="material-imagem">
-                            <img src="papel.png" alt="Materiais recicláveis de papel e papelão">
+                            <img
+                                src="./imagens/papel.png"
+                                alt="Materiais recicláveis de papel e papelão"
+                                loading="lazy"
+                            >
                         </div>
+
                         <div class="material-conteudo">
                             <h3>Papel</h3>
+
                             <p>
-                                Folhas, jornais, revistas, caixas e papelão limpo e seco.
+                                Folhas, jornais, revistas, caixas
+                                e papelão limpo e seco.
                             </p>
                         </div>
+
                     </article>
 
                     <article class="material">
+
                         <div class="material-imagem">
-                            <img src="plastico.png" alt="Materiais recicláveis de plástico">
+                            <img
+                                src="./imagens/plastico.png"
+                                alt="Materiais recicláveis de plástico"
+                                loading="lazy"
+                            >
                         </div>
+
                         <div class="material-conteudo">
                             <h3>Plástico</h3>
+
                             <p>
-                                Garrafas, potes, sacolas, tampas e embalagens plásticas.
+                                Garrafas, potes, sacolas, tampas
+                                e embalagens plásticas.
                             </p>
                         </div>
+
                     </article>
 
                     <article class="material">
+
                         <div class="material-imagem">
-                            <img src="vidro.png" alt="Materiais recicláveis de vidro">
+                            <img
+                                src="./imagens/vidro.png"
+                                alt="Materiais recicláveis de vidro"
+                                loading="lazy"
+                            >
                         </div>
+
                         <div class="material-conteudo">
                             <h3>Vidro</h3>
+
                             <p>
-                                Garrafas, frascos e potes de vidro sem resíduos em seu interior.
+                                Garrafas, frascos e potes de vidro
+                                sem resíduos em seu interior.
                             </p>
                         </div>
+
                     </article>
 
                     <article class="material">
+
                         <div class="material-imagem">
-                            <img src="metal.png" alt="Materiais recicláveis de metal">
+                            <img
+                                src="./imagens/metal.png"
+                                alt="Materiais recicláveis de metal"
+                                loading="lazy"
+                            >
                         </div>
+
                         <div class="material-conteudo">
                             <h3>Metal</h3>
+
                             <p>
                                 Latas, tampas e embalagens metálicas limpas.
                             </p>
                         </div>
+
                     </article>
 
                 </div>
@@ -653,29 +830,38 @@
             <div class="container">
 
                 <div class="titulo-secao">
+
                     <span>Antes da coleta</span>
+
                     <h2>Prepare os materiais corretamente</h2>
+
                     <p>
-                        Alguns cuidados simples facilitam o recolhimento e aumentam
-                        a possibilidade de reciclagem.
+                        Alguns cuidados simples facilitam o recolhimento
+                        e aumentam a possibilidade de reciclagem.
                     </p>
+
                 </div>
 
                 <div class="preparacao-grid">
 
                     <article class="lista lista-correto">
+
                         <h3>Faça assim</h3>
+
                         <ul>
                             <li>Retire os restos de alimentos</li>
                             <li>Esvazie garrafas, latas e embalagens</li>
                             <li>Mantenha papel e papelão secos</li>
-                            <li>Coloque os recicláveis separados do lixo comum</li>
+                            <li>Separe os recicláveis do lixo comum</li>
                             <li>Proteja e identifique vidros quebrados</li>
                         </ul>
+
                     </article>
 
                     <article class="lista lista-atencao">
+
                         <h3>Não coloque junto</h3>
+
                         <ul>
                             <li>Restos de comida</li>
                             <li>Papel higiênico e fraldas</li>
@@ -683,6 +869,7 @@
                             <li>Medicamentos, pilhas e baterias</li>
                             <li>Materiais contaminados</li>
                         </ul>
+
                     </article>
 
                 </div>
@@ -692,15 +879,22 @@
 
         <section class="chamada-final">
             <div class="container">
+
                 <div class="chamada-conteudo">
-                    <h2>Morador do Bairro Concórdia, participe!</h2>
+
+                    <h2>
+                        Morador do Bairro Concórdia, participe!
+                    </h2>
+
                     <p>
                         Separe seus materiais recicláveis e lembre-se:
                         a coleta seletiva acontece toda quinta-feira.
                         Sua participação ajuda a manter o bairro mais limpo
                         e a destinar corretamente os resíduos.
                     </p>
+
                 </div>
+
             </div>
         </section>
 
@@ -708,7 +902,8 @@
 
     <footer>
         <p>
-            <strong>Coleta Seletiva no Bairro Concórdia</strong> — Toda quinta-feira.
+            <strong>Coleta Seletiva no Bairro Concórdia</strong>
+            — Toda quinta-feira.
         </p>
     </footer>
 
