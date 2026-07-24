@@ -58,8 +58,6 @@
             margin: 0 auto;
         }
 
-        /* Menu */
-
         .menu {
             position: sticky;
             top: 0;
@@ -100,14 +98,11 @@
             color: var(--amarelo);
         }
 
-        /* Banner */
-
         .hero {
             min-height: 650px;
             display: flex;
             align-items: center;
             color: var(--branco);
-
             background-color: var(--verde-escuro);
 
             background-image:
@@ -116,7 +111,7 @@
                     rgba(20, 83, 45, 0.97) 0%,
                     rgba(20, 83, 45, 0.91) 30%,
                     rgba(20, 83, 45, 0.72) 55%,
-                    rgba(20, 83, 45, 0.20) 100%
+                    rgba(20, 83, 45, 0.18) 100%
                 ),
                 url("./imagens/banner-coleta.png");
 
@@ -151,7 +146,7 @@
             margin-bottom: 20px;
             font-size: clamp(40px, 6vw, 68px);
             line-height: 1.06;
-            text-shadow: 0 3px 12px rgba(0, 0, 0, 0.28);
+            text-shadow: 0 3px 12px rgba(0, 0, 0, 0.30);
         }
 
         .hero h1 strong {
@@ -176,9 +171,7 @@
             font-weight: bold;
             text-decoration: none;
             box-shadow: var(--sombra);
-            transition:
-                transform 0.2s ease,
-                background 0.2s ease;
+            transition: 0.2s ease;
         }
 
         .botao:hover {
@@ -186,13 +179,11 @@
             background: var(--verde-claro);
         }
 
-        /* Cartão do bairro */
-
         .cartao-bairro {
             padding: 34px;
             border: 1px solid rgba(255, 255, 255, 0.42);
             border-radius: 22px;
-            background: rgba(20, 83, 45, 0.83);
+            background: rgba(20, 83, 45, 0.84);
             box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
             backdrop-filter: blur(7px);
         }
@@ -242,8 +233,6 @@
             text-align: center;
         }
 
-        /* Aviso */
-
         .aviso-rapido {
             padding: 16px 20px;
             background: var(--amarelo);
@@ -252,8 +241,6 @@
             font-weight: bold;
             text-align: center;
         }
-
-        /* Seções */
 
         section {
             padding: 78px 0;
@@ -285,8 +272,6 @@
             color: var(--texto-claro);
             font-size: 17px;
         }
-
-        /* Como funciona */
 
         .funcionamento {
             background: var(--branco);
@@ -330,8 +315,6 @@
             color: var(--texto-claro);
         }
 
-        /* Materiais */
-
         .materiais {
             background: #f7fcf8;
         }
@@ -348,9 +331,7 @@
             border-radius: 18px;
             background: var(--branco);
             box-shadow: var(--sombra);
-            transition:
-                transform 0.2s ease,
-                box-shadow 0.2s ease;
+            transition: 0.2s ease;
         }
 
         .material:hover {
@@ -364,12 +345,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background:
-                linear-gradient(
-                    180deg,
-                    #eef8f0 0%,
-                    #dff3e3 100%
-                );
+            background: linear-gradient(
+                180deg,
+                #eef8f0 0%,
+                #dff3e3 100%
+            );
         }
 
         .material-imagem img {
@@ -392,8 +372,6 @@
         .material p {
             color: var(--texto-claro);
         }
-
-        /* Preparação */
 
         .preparacao {
             background: var(--verde-claro);
@@ -445,8 +423,6 @@
             font-weight: bold;
         }
 
-        /* Chamada final */
-
         .chamada-final {
             padding-top: 0;
             background: var(--verde-claro);
@@ -455,12 +431,11 @@
         .chamada-conteudo {
             padding: 46px;
             border-radius: 22px;
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--verde-escuro),
-                    var(--verde-medio)
-                );
+            background: linear-gradient(
+                135deg,
+                var(--verde-escuro),
+                var(--verde-medio)
+            );
             color: var(--branco);
             text-align: center;
             box-shadow: var(--sombra);
@@ -478,8 +453,6 @@
             font-size: 18px;
         }
 
-        /* Rodapé */
-
         footer {
             padding: 30px 20px;
             background: #0c2f19;
@@ -490,8 +463,6 @@
         footer strong {
             color: var(--branco);
         }
-
-        /* Responsividade */
 
         @media (max-width: 980px) {
             .hero-grid {
@@ -563,10 +534,6 @@
                 padding: 26px;
             }
 
-            .cartao-bairro h2 {
-                font-size: 31px;
-            }
-
             .dia-coleta strong {
                 font-size: 28px;
             }
@@ -585,10 +552,6 @@
 
             .chamada-conteudo {
                 padding: 30px 22px;
-            }
-
-            .chamada-conteudo h2 {
-                font-size: 28px;
             }
         }
     </style>
@@ -615,7 +578,7 @@
     <header class="hero" id="inicio">
         <div class="container hero-grid">
 
-            <div class="hero-conteudo">
+            <div>
 
                 <span class="etiqueta">
                     Atenção, moradores
