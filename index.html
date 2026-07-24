@@ -22,13 +22,32 @@
             --verde-medio: #1f7a3d;
             --verde-claro: #dcfce7;
             --verde-fundo: #effaf2;
+
             --amarelo: #facc15;
             --branco: #ffffff;
-            --fundo: #f6faf7;
             --texto: #1f2937;
             --texto-claro: #4b5563;
             --borda: #d8e7da;
-            --sombra: 0 10px 30px rgba(20, 83, 45, 0.12);
+
+            --azul-papel: #1976d2;
+            --vermelho-plastico: #d32f2f;
+            --verde-vidro: #15803d;
+            --amarelo-metal: #eab308;
+
+            --fundo-funcionamento: #f4faf5;
+            --fundo-materiais: #e5f2e8;
+            --fundo-preparacao: #fff8dc;
+            --fundo-final: #dceee2;
+
+            --titulo-funcionamento: #d9eee0;
+            --titulo-materiais: #c9e5d1;
+            --titulo-preparacao: #f8e9a9;
+
+            --sombra:
+                0 12px 32px rgba(20, 83, 45, 0.12);
+
+            --sombra-forte:
+                0 18px 40px rgba(20, 83, 45, 0.18);
         }
 
         * {
@@ -43,7 +62,7 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: var(--fundo);
+            background: var(--branco);
             color: var(--texto);
             line-height: 1.6;
         }
@@ -100,7 +119,7 @@
             color: var(--amarelo);
         }
 
-        /* Banner principal */
+        /* Banner */
 
         .hero {
             min-height: 650px;
@@ -244,7 +263,7 @@
         /* Aviso */
 
         .aviso-rapido {
-            padding: 16px 20px;
+            padding: 17px 20px;
             background: var(--amarelo);
             color: #3d2f00;
             font-size: 17px;
@@ -255,32 +274,39 @@
         /* Seções */
 
         section {
-            padding: 78px 0;
+            padding: 90px 0;
         }
 
         .titulo-secao {
-            max-width: 780px;
-            margin-bottom: 36px;
+            max-width: 860px;
+            margin-bottom: 44px;
+            padding: 30px 34px;
+            border-radius: 22px;
+            box-shadow: var(--sombra);
         }
 
         .titulo-secao span {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--verde);
-            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 13px;
+            padding: 7px 13px;
+            border-radius: 999px;
+            background: var(--verde-escuro);
+            color: var(--branco);
+            font-size: 13px;
             font-weight: bold;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
 
         .titulo-secao h2 {
-            margin-bottom: 12px;
+            margin-bottom: 13px;
             color: var(--verde-escuro);
-            font-size: clamp(30px, 4vw, 42px);
-            line-height: 1.2;
+            font-size: clamp(31px, 4vw, 43px);
+            line-height: 1.15;
         }
 
         .titulo-secao p {
+            max-width: 730px;
             color: var(--texto-claro);
             font-size: 17px;
         }
@@ -288,7 +314,20 @@
         /* Como funciona */
 
         .funcionamento {
-            background: var(--branco);
+            background: var(--fundo-funcionamento);
+        }
+
+        .funcionamento .titulo-secao {
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--titulo-funcionamento),
+                    #eef8f1
+                );
+        }
+
+        .funcionamento .titulo-secao span {
+            background: var(--verde-escuro);
         }
 
         .passos-grid {
@@ -299,8 +338,7 @@
 
         .passo {
             overflow: hidden;
-            border: 1px solid var(--borda);
-            border-radius: 18px;
+            border-radius: 20px;
             background: var(--branco);
             box-shadow: var(--sombra);
             transition:
@@ -309,8 +347,8 @@
         }
 
         .passo:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 16px 35px rgba(20, 83, 45, 0.17);
+            transform: translateY(-6px);
+            box-shadow: var(--sombra-forte);
         }
 
         .passo-capa {
@@ -334,6 +372,7 @@
             position: absolute;
             inset: 0;
             z-index: 1;
+
             background:
                 linear-gradient(
                     180deg,
@@ -381,8 +420,7 @@
         .passo-informacao {
             min-height: 170px;
             padding: 26px;
-            border-top: 5px solid var(--verde);
-            background: var(--verde-fundo);
+            background: var(--branco);
         }
 
         .passo-informacao p {
@@ -397,7 +435,20 @@
         /* Materiais */
 
         .materiais {
-            background: #f7fcf8;
+            background: var(--fundo-materiais);
+        }
+
+        .materiais .titulo-secao {
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--titulo-materiais),
+                    #e8f4eb
+                );
+        }
+
+        .materiais .titulo-secao span {
+            background: var(--verde);
         }
 
         .materiais-grid {
@@ -407,10 +458,11 @@
         }
 
         .material {
+            position: relative;
+            min-height: 410px;
             overflow: hidden;
-            border: 1px solid var(--borda);
-            border-radius: 18px;
-            background: var(--branco);
+            border-radius: 20px;
+            background: var(--verde-escuro);
             box-shadow: var(--sombra);
             transition:
                 transform 0.2s ease,
@@ -418,49 +470,110 @@
         }
 
         .material:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 16px 35px rgba(20, 83, 45, 0.17);
+            transform: translateY(-6px);
+            box-shadow: var(--sombra-forte);
         }
 
-        .material-imagem {
-            height: 240px;
-            padding: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .material > img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.4s ease;
+        }
+
+        .material:hover > img {
+            transform: scale(1.05);
+        }
+
+        .material::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+
             background:
                 linear-gradient(
                     180deg,
-                    #eef8f0 0%,
-                    #dff3e3 100%
+                    rgba(0, 0, 0, 0.02) 5%,
+                    rgba(0, 0, 0, 0.10) 35%,
+                    rgba(7, 36, 19, 0.66) 65%,
+                    rgba(7, 36, 19, 0.96) 100%
                 );
         }
 
-        .material-imagem img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 10px;
+        .material-conteudo {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+            padding: 26px;
+            color: var(--branco);
         }
 
-        .material-conteudo {
-            padding: 22px;
+        .material-etiqueta {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            color: var(--branco);
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
         }
 
         .material h3 {
             margin-bottom: 10px;
-            color: var(--verde-escuro);
-            font-size: 22px;
+            color: var(--branco);
+            font-size: 28px;
+            line-height: 1.1;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.70);
         }
 
         .material p {
-            color: var(--texto-claro);
+            color: #f4fff6;
+            font-size: 16px;
+            line-height: 1.55;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.70);
+        }
+
+        .material-papel .material-etiqueta {
+            background: var(--azul-papel);
+        }
+
+        .material-plastico .material-etiqueta {
+            background: var(--vermelho-plastico);
+        }
+
+        .material-vidro .material-etiqueta {
+            background: var(--verde-vidro);
+        }
+
+        .material-metal .material-etiqueta {
+            background: #a97700;
         }
 
         /* Preparação */
 
         .preparacao {
-            background: var(--verde-claro);
+            background: var(--fundo-preparacao);
+        }
+
+        .preparacao .titulo-secao {
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--titulo-preparacao),
+                    #fff3c2
+                );
+        }
+
+        .preparacao .titulo-secao span {
+            background: #8a6800;
         }
 
         .preparacao-grid {
@@ -470,16 +583,16 @@
         }
 
         .lista {
-            padding: 32px;
-            border-radius: 18px;
+            padding: 34px;
+            border-radius: 20px;
             background: var(--branco);
             box-shadow: var(--sombra);
         }
 
         .lista h3 {
-            margin-bottom: 18px;
+            margin-bottom: 22px;
             color: var(--verde-escuro);
-            font-size: 24px;
+            font-size: 25px;
         }
 
         .lista ul {
@@ -512,26 +625,28 @@
         /* Chamada final */
 
         .chamada-final {
-            padding-top: 0;
-            background: var(--verde-claro);
+            padding-top: 55px;
+            background: var(--fundo-final);
         }
 
         .chamada-conteudo {
-            padding: 46px;
-            border-radius: 22px;
+            padding: 48px;
+            border-radius: 24px;
+
             background:
                 linear-gradient(
                     135deg,
                     var(--verde-escuro),
                     var(--verde-medio)
                 );
+
             color: var(--branco);
             text-align: center;
-            box-shadow: var(--sombra);
+            box-shadow: var(--sombra-forte);
         }
 
         .chamada-conteudo h2 {
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             font-size: 34px;
         }
 
@@ -587,8 +702,6 @@
                 min-height: auto;
                 display: flex;
                 align-items: center;
-                border-top: 0;
-                border-left: 5px solid var(--verde);
             }
         }
 
@@ -603,8 +716,6 @@
 
             .passo-informacao {
                 display: block;
-                border-top: 5px solid var(--verde);
-                border-left: 0;
             }
         }
 
@@ -662,7 +773,16 @@
             }
 
             section {
-                padding: 58px 0;
+                padding: 65px 0;
+            }
+
+            .titulo-secao {
+                padding: 25px 22px;
+                border-radius: 18px;
+            }
+
+            .titulo-secao h2 {
+                font-size: 29px;
             }
 
             .passo-capa {
@@ -681,12 +801,20 @@
                 grid-template-columns: 1fr;
             }
 
-            .material-imagem {
-                height: 280px;
+            .material {
+                min-height: 390px;
+            }
+
+            .material-conteudo {
+                padding: 24px;
             }
 
             .chamada-conteudo {
-                padding: 30px 22px;
+                padding: 32px 22px;
+            }
+
+            .chamada-conteudo h2 {
+                font-size: 28px;
             }
         }
     </style>
@@ -899,85 +1027,102 @@
 
                 <div class="materiais-grid">
 
-                    <article class="material">
+                    <article class="material material-papel">
 
-                        <div class="material-imagem">
-                            <img
-                                src="imagens/papel.png"
-                                alt="Materiais recicláveis de papel e papelão"
-                                loading="lazy"
-                            >
-                        </div>
+                        <img
+                            src="imagens/papel.png"
+                            alt="Papéis, jornais, caixas e papelão recicláveis"
+                            loading="lazy"
+                        >
 
                         <div class="material-conteudo">
+
+                            <span class="material-etiqueta">
+                                Cor azul
+                            </span>
+
                             <h3>Papel</h3>
 
                             <p>
-                                Folhas, jornais, revistas, caixas
-                                e papelão limpo e seco.
+                                Folhas, jornais, revistas, caixas e papelão.
+                                Mantenha todo o material limpo e seco.
                             </p>
+
                         </div>
 
                     </article>
 
-                    <article class="material">
+                    <article class="material material-plastico">
 
-                        <div class="material-imagem">
-                            <img
-                                src="imagens/plastico.png"
-                                alt="Materiais recicláveis de plástico"
-                                loading="lazy"
-                            >
-                        </div>
+                        <img
+                            src="imagens/plastico.png"
+                            alt="Garrafas, potes e embalagens plásticas recicláveis"
+                            loading="lazy"
+                        >
 
                         <div class="material-conteudo">
+
+                            <span class="material-etiqueta">
+                                Cor vermelha
+                            </span>
+
                             <h3>Plástico</h3>
 
                             <p>
-                                Garrafas, potes, sacolas, tampas
-                                e embalagens plásticas.
+                                Garrafas, potes, sacolas, tampas e outras
+                                embalagens plásticas vazias.
                             </p>
+
                         </div>
 
                     </article>
 
-                    <article class="material">
+                    <article class="material material-vidro">
 
-                        <div class="material-imagem">
-                            <img
-                                src="imagens/vidro.png"
-                                alt="Materiais recicláveis de vidro"
-                                loading="lazy"
-                            >
-                        </div>
+                        <img
+                            src="imagens/vidro.png"
+                            alt="Garrafas, frascos e potes de vidro recicláveis"
+                            loading="lazy"
+                        >
 
                         <div class="material-conteudo">
+
+                            <span class="material-etiqueta">
+                                Cor verde
+                            </span>
+
                             <h3>Vidro</h3>
 
                             <p>
-                                Garrafas, frascos e potes de vidro
-                                sem resíduos em seu interior.
+                                Garrafas, potes e frascos de vidro sem líquidos
+                                ou restos de alimentos.
                             </p>
+
                         </div>
 
                     </article>
 
-                    <article class="material">
+                    <article class="material material-metal">
 
-                        <div class="material-imagem">
-                            <img
-                                src="imagens/metal.png"
-                                alt="Materiais recicláveis de metal"
-                                loading="lazy"
-                            >
-                        </div>
+                        <img
+                            src="imagens/metal.png"
+                            alt="Latas, tampas e embalagens metálicas recicláveis"
+                            loading="lazy"
+                        >
 
                         <div class="material-conteudo">
+
+                            <span class="material-etiqueta">
+                                Cor amarela
+                            </span>
+
                             <h3>Metal</h3>
 
                             <p>
-                                Latas, tampas e embalagens metálicas limpas.
+                                Latas de bebidas e alimentos, tampas e
+                                embalagens metálicas limpas.
                             </p>
+
                         </div>
 
                     </article>
