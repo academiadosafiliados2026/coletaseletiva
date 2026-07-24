@@ -10,10 +10,10 @@
 
     <meta
         name="description"
-        content="Informações sobre a coleta seletiva no Bairro Concórdia, dia de recolhimento e materiais recicláveis aceitos."
+        content="Informações sobre a coleta seletiva nos bairros Céu Azul, Jardim Leblon e Copacabana."
     >
 
-    <title>Coleta Seletiva no Bairro Concórdia</title>
+    <title>Coleta Seletiva — Céu Azul, Jardim Leblon e Copacabana</title>
 
     <style>
         :root {
@@ -28,11 +28,12 @@
             --texto: #1f2937;
             --texto-claro: #4b5563;
             --borda: #d8e7da;
+            --whatsapp: #25d366;
+            --whatsapp-escuro: #128c4a;
 
             --azul-papel: #1976d2;
             --vermelho-plastico: #d32f2f;
             --verde-vidro: #15803d;
-            --amarelo-metal: #eab308;
 
             --fundo-funcionamento: #f4faf5;
             --fundo-materiais: #e5f2e8;
@@ -165,9 +166,9 @@
         }
 
         .hero h1 {
-            max-width: 740px;
+            max-width: 750px;
             margin-bottom: 20px;
-            font-size: clamp(40px, 6vw, 68px);
+            font-size: clamp(40px, 6vw, 66px);
             line-height: 1.06;
             text-shadow: 0 3px 12px rgba(0, 0, 0, 0.30);
         }
@@ -185,13 +186,23 @@
             text-shadow: 0 2px 7px rgba(0, 0, 0, 0.30);
         }
 
+        .acoes-hero {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
         .botao {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 52px;
             padding: 14px 22px;
             border-radius: 10px;
             background: var(--branco);
             color: var(--verde-escuro);
             font-weight: bold;
+            text-align: center;
             text-decoration: none;
             box-shadow: var(--sombra);
             transition:
@@ -204,34 +215,69 @@
             background: var(--verde-claro);
         }
 
-        /* Cartão do bairro */
+        .botao-whatsapp {
+            gap: 9px;
+            background: var(--whatsapp);
+            color: #073d20;
+        }
+
+        .botao-whatsapp:hover {
+            background: #4ade80;
+        }
+
+        .icone-whatsapp {
+            width: 23px;
+            height: 23px;
+            flex: 0 0 auto;
+            fill: currentColor;
+        }
+
+        /* Cartão dos bairros */
 
         .cartao-bairro {
             padding: 34px;
             border: 1px solid rgba(255, 255, 255, 0.42);
             border-radius: 22px;
-            background: rgba(20, 83, 45, 0.84);
+            background: rgba(20, 83, 45, 0.86);
             box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
             backdrop-filter: blur(7px);
         }
 
-        .cartao-bairro span {
+        .cartao-bairro > span {
             display: block;
-            margin-bottom: 6px;
+            margin-bottom: 12px;
             color: #eafaea;
             font-size: 14px;
             font-weight: bold;
             text-transform: uppercase;
         }
 
-        .cartao-bairro h2 {
-            margin-bottom: 20px;
+        .bairros-lista {
+            display: grid;
+            gap: 9px;
+            margin-bottom: 22px;
+            list-style: none;
+        }
+
+        .bairros-lista li {
+            position: relative;
+            padding: 10px 14px 10px 38px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.12);
             color: var(--branco);
-            font-size: 38px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .bairros-lista li::before {
+            content: "✓";
+            position: absolute;
+            left: 14px;
+            color: var(--amarelo);
         }
 
         .dia-coleta {
-            padding: 24px;
+            padding: 22px;
             border-radius: 16px;
             background: var(--branco);
             color: var(--verde-escuro);
@@ -249,14 +295,14 @@
 
         .dia-coleta strong {
             display: block;
-            font-size: 34px;
+            font-size: 31px;
             line-height: 1.2;
         }
 
         .cartao-bairro p {
             margin-top: 18px;
             color: #f3fff4;
-            font-size: 18px;
+            font-size: 16px;
             text-align: center;
         }
 
@@ -324,10 +370,6 @@
                     var(--titulo-funcionamento),
                     #eef8f1
                 );
-        }
-
-        .funcionamento .titulo-secao span {
-            background: var(--verde-escuro);
         }
 
         .passos-grid {
@@ -622,10 +664,57 @@
             font-weight: bold;
         }
 
+        /* Consulta pelo WhatsApp */
+
+        .consulta {
+            background: var(--fundo-final);
+        }
+
+        .consulta-conteudo {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 35px;
+            padding: 42px;
+            border-radius: 24px;
+            background: var(--branco);
+            box-shadow: var(--sombra-forte);
+        }
+
+        .consulta-texto span {
+            display: inline-block;
+            margin-bottom: 10px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: var(--whatsapp);
+            color: #073d20;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .consulta-texto h2 {
+            margin-bottom: 12px;
+            color: var(--verde-escuro);
+            font-size: 34px;
+            line-height: 1.2;
+        }
+
+        .consulta-texto p {
+            max-width: 720px;
+            color: var(--texto-claro);
+            font-size: 18px;
+        }
+
+        .consulta .botao-whatsapp {
+            min-width: 260px;
+            color: #073d20;
+        }
+
         /* Chamada final */
 
         .chamada-final {
-            padding-top: 55px;
+            padding-top: 50px;
             background: var(--fundo-final);
         }
 
@@ -651,7 +740,7 @@
         }
 
         .chamada-conteudo p {
-            max-width: 760px;
+            max-width: 800px;
             margin: 0 auto;
             color: #ebffef;
             font-size: 18px;
@@ -678,7 +767,7 @@
             }
 
             .cartao-bairro {
-                max-width: 600px;
+                max-width: 650px;
             }
 
             .passos-grid {
@@ -702,6 +791,14 @@
                 min-height: auto;
                 display: flex;
                 align-items: center;
+            }
+
+            .consulta-conteudo {
+                grid-template-columns: 1fr;
+            }
+
+            .consulta .botao-whatsapp {
+                width: 100%;
             }
         }
 
@@ -757,19 +854,31 @@
             }
 
             .hero h1 {
-                font-size: 42px;
+                font-size: 39px;
             }
 
             .hero-texto {
                 font-size: 18px;
             }
 
+            .acoes-hero {
+                flex-direction: column;
+            }
+
+            .acoes-hero .botao {
+                width: 100%;
+            }
+
             .cartao-bairro {
-                padding: 26px;
+                padding: 25px;
+            }
+
+            .bairros-lista li {
+                font-size: 18px;
             }
 
             .dia-coleta strong {
-                font-size: 28px;
+                font-size: 27px;
             }
 
             section {
@@ -809,6 +918,14 @@
                 padding: 24px;
             }
 
+            .consulta-conteudo {
+                padding: 30px 22px;
+            }
+
+            .consulta-texto h2 {
+                font-size: 28px;
+            }
+
             .chamada-conteudo {
                 padding: 32px 22px;
             }
@@ -833,6 +950,7 @@
                 <a href="#como-funciona">Como funciona</a>
                 <a href="#materiais">O que separar</a>
                 <a href="#preparar">Como preparar</a>
+                <a href="#consultar-rua">Consultar rua</a>
             </div>
 
         </div>
@@ -848,27 +966,54 @@
                 </span>
 
                 <h1>
-                    A coleta seletiva agora está no
-                    <strong>Bairro Concórdia</strong>
+                    A coleta seletiva agora está nos bairros
+                    <strong>
+                        Céu Azul, Jardim Leblon e Copacabana
+                    </strong>
                 </h1>
 
                 <p class="hero-texto">
                     Separe os materiais recicláveis da sua residência.
-                    A coleta passa pelo bairro toda semana para recolher
-                    papel, plástico, vidro e metal.
+                    A coleta passa toda semana para recolher papel,
+                    plástico, vidro e metal.
                 </p>
 
-                <a class="botao" href="#como-funciona">
-                    Veja como participar
-                </a>
+                <div class="acoes-hero">
+
+                    <a class="botao" href="#como-funciona">
+                        Veja como participar
+                    </a>
+
+                    <a
+                        class="botao botao-whatsapp"
+                        href="https://wa.me/5521999262445?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20se%20minha%20rua%20tem%20acesso%20%C3%A0%20coleta%20seletiva%20nos%20bairros%20C%C3%A9u%20Azul%2C%20Jardim%20Leblon%20ou%20Copacabana."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <svg
+                            class="icone-whatsapp"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M20.52 3.48A11.83 11.83 0 0 0 12.08 0C5.5 0 .15 5.35.15 11.93c0 2.1.55 4.15 1.6 5.96L.05 24l6.25-1.64a11.9 11.9 0 0 0 5.77 1.47h.01C18.65 23.83 24 18.48 24 11.9c0-3.18-1.24-6.17-3.48-8.42ZM12.08 21.8h-.01a9.84 9.84 0 0 1-5.02-1.37l-.36-.21-3.71.97.99-3.62-.24-.37a9.86 9.86 0 0 1-1.52-5.27c0-5.45 4.43-9.88 9.89-9.88a9.82 9.82 0 0 1 6.99 2.9 9.82 9.82 0 0 1 2.89 6.98c-.01 5.44-4.45 9.87-9.9 9.87Zm5.42-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47a8.9 8.9 0 0 1-1.65-2.05c-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.08-.79.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.21 5.09 4.5.71.31 1.27.49 1.7.63.71.23 1.36.19 1.87.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z"/>
+                        </svg>
+
+                        Conferir minha rua
+                    </a>
+
+                </div>
 
             </div>
 
             <aside class="cartao-bairro">
 
-                <span>Bairro atendido</span>
+                <span>Bairros atendidos</span>
 
-                <h2>Concórdia</h2>
+                <ul class="bairros-lista">
+                    <li>Céu Azul</li>
+                    <li>Jardim Leblon</li>
+                    <li>Copacabana</li>
+                </ul>
 
                 <div class="dia-coleta">
                     <small>Dia da coleta</small>
@@ -876,7 +1021,7 @@
                 </div>
 
                 <p>
-                    Deixe os materiais separados e preparados para a coleta.
+                    Consulte pelo WhatsApp se a coleta passa na sua rua.
                 </p>
 
             </aside>
@@ -885,7 +1030,8 @@
     </header>
 
     <div class="aviso-rapido">
-        ♻ Toda quinta-feira tem coleta seletiva no Bairro Concórdia.
+        ♻ Toda quinta-feira tem coleta seletiva nos bairros
+        Céu Azul, Jardim Leblon e Copacabana.
     </div>
 
     <main>
@@ -897,11 +1043,11 @@
 
                     <span>Participe da coleta</span>
 
-                    <h2>Como funciona no bairro?</h2>
+                    <h2>Como funciona nos bairros?</h2>
 
                     <p>
                         Siga estes três passos para participar corretamente
-                        da coleta seletiva no Bairro Concórdia.
+                        da coleta seletiva.
                     </p>
 
                 </div>
@@ -997,7 +1143,7 @@
                                 </strong>
 
                                 Coloque os materiais recicláveis separados do
-                                lixo comum para o recolhimento de quinta-feira.
+                                lixo comum para o recolhimento.
                             </p>
 
                         </div>
@@ -1019,8 +1165,8 @@
                     <h2>O que separar para a coleta seletiva?</h2>
 
                     <p>
-                        Separe os principais materiais recicláveis
-                        utilizados no dia a dia.
+                        Separe os principais materiais recicláveis utilizados
+                        no dia a dia.
                     </p>
 
                 </div>
@@ -1183,20 +1329,61 @@
             </div>
         </section>
 
+        <section class="consulta" id="consultar-rua">
+            <div class="container">
+
+                <div class="consulta-conteudo">
+
+                    <div class="consulta-texto">
+
+                        <span>Consulta pelo WhatsApp</span>
+
+                        <h2>Sua rua tem acesso à coleta seletiva?</h2>
+
+                        <p>
+                            Envie uma mensagem informando seu bairro e o nome
+                            completo da sua rua para confirmar se o endereço
+                            faz parte da rota de coleta.
+                        </p>
+
+                    </div>
+
+                    <a
+                        class="botao botao-whatsapp"
+                        href="https://wa.me/5521999262445?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20se%20minha%20rua%20tem%20acesso%20%C3%A0%20coleta%20seletiva%20nos%20bairros%20C%C3%A9u%20Azul%2C%20Jardim%20Leblon%20ou%20Copacabana."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <svg
+                            class="icone-whatsapp"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M20.52 3.48A11.83 11.83 0 0 0 12.08 0C5.5 0 .15 5.35.15 11.93c0 2.1.55 4.15 1.6 5.96L.05 24l6.25-1.64a11.9 11.9 0 0 0 5.77 1.47h.01C18.65 23.83 24 18.48 24 11.9c0-3.18-1.24-6.17-3.48-8.42ZM12.08 21.8h-.01a9.84 9.84 0 0 1-5.02-1.37l-.36-.21-3.71.97.99-3.62-.24-.37a9.86 9.86 0 0 1-1.52-5.27c0-5.45 4.43-9.88 9.89-9.88a9.82 9.82 0 0 1 6.99 2.9 9.82 9.82 0 0 1 2.89 6.98c-.01 5.44-4.45 9.87-9.9 9.87Zm5.42-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47a8.9 8.9 0 0 1-1.65-2.05c-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.08-.79.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.21 5.09 4.5.71.31 1.27.49 1.7.63.71.23 1.36.19 1.87.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z"/>
+                        </svg>
+
+                        Consultar minha rua
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
         <section class="chamada-final">
             <div class="container">
 
                 <div class="chamada-conteudo">
 
                     <h2>
-                        Morador do Bairro Concórdia, participe!
+                        Moradores de Céu Azul, Jardim Leblon e Copacabana:
+                        participem!
                     </h2>
 
                     <p>
                         Separe seus materiais recicláveis e lembre-se:
                         a coleta seletiva acontece toda quinta-feira.
-                        Sua participação ajuda a manter o bairro mais limpo
-                        e a destinar corretamente os resíduos.
+                        Consulte pelo WhatsApp se a sua rua faz parte da rota.
                     </p>
 
                 </div>
@@ -1208,7 +1395,9 @@
 
     <footer>
         <p>
-            <strong>Coleta Seletiva no Bairro Concórdia</strong>
+            <strong>
+                Coleta Seletiva — Céu Azul, Jardim Leblon e Copacabana
+            </strong>
             — Toda quinta-feira.
         </p>
     </footer>
