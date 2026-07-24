@@ -58,6 +58,8 @@
             margin: 0 auto;
         }
 
+        /* Menu */
+
         .menu {
             position: sticky;
             top: 0;
@@ -98,6 +100,8 @@
             color: var(--amarelo);
         }
 
+        /* Banner principal */
+
         .hero {
             min-height: 650px;
             display: flex;
@@ -113,7 +117,7 @@
                     rgba(20, 83, 45, 0.72) 55%,
                     rgba(20, 83, 45, 0.18) 100%
                 ),
-                url("./imagens/banner-coleta.png");
+                url("imagens/banner-coleta.png");
 
             background-position: center;
             background-size: cover;
@@ -171,13 +175,17 @@
             font-weight: bold;
             text-decoration: none;
             box-shadow: var(--sombra);
-            transition: 0.2s ease;
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease;
         }
 
         .botao:hover {
             transform: translateY(-2px);
             background: var(--verde-claro);
         }
+
+        /* Cartão do bairro */
 
         .cartao-bairro {
             padding: 34px;
@@ -233,6 +241,8 @@
             text-align: center;
         }
 
+        /* Aviso */
+
         .aviso-rapido {
             padding: 16px 20px;
             background: var(--amarelo);
@@ -241,6 +251,8 @@
             font-weight: bold;
             text-align: center;
         }
+
+        /* Seções */
 
         section {
             padding: 78px 0;
@@ -273,6 +285,8 @@
             font-size: 17px;
         }
 
+        /* Como funciona */
+
         .funcionamento {
             background: var(--branco);
         }
@@ -284,36 +298,103 @@
         }
 
         .passo {
-            padding: 30px;
+            overflow: hidden;
             border: 1px solid var(--borda);
             border-radius: 18px;
-            background: var(--verde-fundo);
+            background: var(--branco);
             box-shadow: var(--sombra);
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .passo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 35px rgba(20, 83, 45, 0.17);
+        }
+
+        .passo-capa {
+            position: relative;
+            height: 260px;
+            overflow: hidden;
+            background: var(--verde-escuro);
+        }
+
+        .passo-capa > img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .passo-capa::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(20, 83, 45, 0.02) 15%,
+                    rgba(20, 83, 45, 0.18) 45%,
+                    rgba(20, 83, 45, 0.92) 100%
+                );
+        }
+
+        .passo-titulo {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 24px;
         }
 
         .numero {
+            flex: 0 0 auto;
             width: 48px;
             height: 48px;
-            margin-bottom: 18px;
-            border-radius: 50%;
-            background: var(--verde);
-            color: var(--branco);
             display: flex;
             align-items: center;
             justify-content: center;
+            border: 2px solid rgba(255, 255, 255, 0.75);
+            border-radius: 50%;
+            background: var(--verde);
+            color: var(--branco);
             font-size: 19px;
             font-weight: bold;
+            box-shadow: 0 5px 14px rgba(0, 0, 0, 0.25);
         }
 
-        .passo h3 {
-            margin-bottom: 10px;
-            color: var(--verde-escuro);
-            font-size: 22px;
+        .passo-titulo h3 {
+            color: var(--branco);
+            font-size: 23px;
+            line-height: 1.2;
+            text-shadow: 0 2px 7px rgba(0, 0, 0, 0.65);
         }
 
-        .passo p {
+        .passo-informacao {
+            min-height: 170px;
+            padding: 26px;
+            border-top: 5px solid var(--verde);
+            background: var(--verde-fundo);
+        }
+
+        .passo-informacao p {
             color: var(--texto-claro);
+            font-size: 17px;
         }
+
+        .passo-informacao strong {
+            color: var(--verde-escuro);
+        }
+
+        /* Materiais */
 
         .materiais {
             background: #f7fcf8;
@@ -331,7 +412,9 @@
             border-radius: 18px;
             background: var(--branco);
             box-shadow: var(--sombra);
-            transition: 0.2s ease;
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
         }
 
         .material:hover {
@@ -345,11 +428,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(
-                180deg,
-                #eef8f0 0%,
-                #dff3e3 100%
-            );
+            background:
+                linear-gradient(
+                    180deg,
+                    #eef8f0 0%,
+                    #dff3e3 100%
+                );
         }
 
         .material-imagem img {
@@ -372,6 +456,8 @@
         .material p {
             color: var(--texto-claro);
         }
+
+        /* Preparação */
 
         .preparacao {
             background: var(--verde-claro);
@@ -423,6 +509,8 @@
             font-weight: bold;
         }
 
+        /* Chamada final */
+
         .chamada-final {
             padding-top: 0;
             background: var(--verde-claro);
@@ -431,11 +519,12 @@
         .chamada-conteudo {
             padding: 46px;
             border-radius: 22px;
-            background: linear-gradient(
-                135deg,
-                var(--verde-escuro),
-                var(--verde-medio)
-            );
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--verde-escuro),
+                    var(--verde-medio)
+                );
             color: var(--branco);
             text-align: center;
             box-shadow: var(--sombra);
@@ -453,6 +542,8 @@
             font-size: 18px;
         }
 
+        /* Rodapé */
+
         footer {
             padding: 30px 20px;
             background: #0c2f19;
@@ -464,6 +555,8 @@
             color: var(--branco);
         }
 
+        /* Responsividade */
+
         @media (max-width: 980px) {
             .hero-grid {
                 grid-template-columns: 1fr;
@@ -473,15 +566,45 @@
                 max-width: 600px;
             }
 
+            .passos-grid {
+                grid-template-columns: 1fr;
+            }
+
             .materiais-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .passo {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .passo-capa {
+                height: 300px;
+            }
+
+            .passo-informacao {
+                min-height: auto;
+                display: flex;
+                align-items: center;
+                border-top: 0;
+                border-left: 5px solid var(--verde);
             }
         }
 
         @media (max-width: 760px) {
-            .passos-grid,
             .preparacao-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .passo {
+                display: block;
+            }
+
+            .passo-informacao {
+                display: block;
+                border-top: 5px solid var(--verde);
+                border-left: 0;
             }
         }
 
@@ -513,7 +636,7 @@
                         rgba(20, 83, 45, 0.91),
                         rgba(20, 83, 45, 0.91)
                     ),
-                    url("./imagens/banner-coleta.png");
+                    url("imagens/banner-coleta.png");
 
                 background-position: 68% center;
             }
@@ -540,6 +663,18 @@
 
             section {
                 padding: 58px 0;
+            }
+
+            .passo-capa {
+                height: 250px;
+            }
+
+            .passo-titulo {
+                padding: 21px;
+            }
+
+            .passo-titulo h3 {
+                font-size: 21px;
             }
 
             .materiais-grid {
@@ -637,8 +772,8 @@
                     <h2>Como funciona no bairro?</h2>
 
                     <p>
-                        Os moradores separam os materiais recicláveis
-                        e os disponibilizam no dia informado para o recolhimento.
+                        Siga estes três passos para participar corretamente
+                        da coleta seletiva no Bairro Concórdia.
                     </p>
 
                 </div>
@@ -646,36 +781,99 @@
                 <div class="passos-grid">
 
                     <article class="passo">
-                        <div class="numero">1</div>
 
-                        <h3>Separe em casa</h3>
+                        <div class="passo-capa">
 
-                        <p>
-                            Não misture materiais recicláveis com restos de
-                            comida, resíduos de banheiro ou lixo comum.
-                        </p>
+                            <img
+                                src="imagens/separe-em-casa-fundo.png"
+                                alt=""
+                                aria-hidden="true"
+                            >
+
+                            <div class="passo-titulo">
+                                <div class="numero">1</div>
+                                <h3>Separe em casa</h3>
+                            </div>
+
+                        </div>
+
+                        <div class="passo-informacao">
+
+                            <p>
+                                <strong>
+                                    Não misture os recicláveis com o lixo comum.
+                                </strong>
+
+                                Separe papel, plástico, vidro e metal dos restos
+                                de comida e resíduos de banheiro.
+                            </p>
+
+                        </div>
+
                     </article>
 
                     <article class="passo">
-                        <div class="numero">2</div>
 
-                        <h3>Prepare os materiais</h3>
+                        <div class="passo-capa">
 
-                        <p>
-                            Esvazie as embalagens, retire restos de alimentos
-                            e mantenha os materiais secos.
-                        </p>
+                            <img
+                                src="imagens/prepare-os-materiais-fundo.png"
+                                alt=""
+                                aria-hidden="true"
+                            >
+
+                            <div class="passo-titulo">
+                                <div class="numero">2</div>
+                                <h3>Prepare os materiais</h3>
+                            </div>
+
+                        </div>
+
+                        <div class="passo-informacao">
+
+                            <p>
+                                <strong>
+                                    Esvazie e mantenha tudo seco.
+                                </strong>
+
+                                Retire líquidos e restos de alimentos das
+                                embalagens antes de disponibilizá-las.
+                            </p>
+
+                        </div>
+
                     </article>
 
                     <article class="passo">
-                        <div class="numero">3</div>
 
-                        <h3>Entregue na quinta-feira</h3>
+                        <div class="passo-capa">
 
-                        <p>
-                            Disponibilize os recicláveis no dia da coleta,
-                            separados do lixo comum.
-                        </p>
+                            <img
+                                src="imagens/entregue-na-quinta-feira-fundo.png"
+                                alt=""
+                                aria-hidden="true"
+                            >
+
+                            <div class="passo-titulo">
+                                <div class="numero">3</div>
+                                <h3>Entregue na quinta-feira</h3>
+                            </div>
+
+                        </div>
+
+                        <div class="passo-informacao">
+
+                            <p>
+                                <strong>
+                                    Disponibilize no dia da coleta.
+                                </strong>
+
+                                Coloque os materiais recicláveis separados do
+                                lixo comum para o recolhimento de quinta-feira.
+                            </p>
+
+                        </div>
+
                     </article>
 
                 </div>
@@ -705,7 +903,7 @@
 
                         <div class="material-imagem">
                             <img
-                                src="./imagens/papel.png"
+                                src="imagens/papel.png"
                                 alt="Materiais recicláveis de papel e papelão"
                                 loading="lazy"
                             >
@@ -726,7 +924,7 @@
 
                         <div class="material-imagem">
                             <img
-                                src="./imagens/plastico.png"
+                                src="imagens/plastico.png"
                                 alt="Materiais recicláveis de plástico"
                                 loading="lazy"
                             >
@@ -747,7 +945,7 @@
 
                         <div class="material-imagem">
                             <img
-                                src="./imagens/vidro.png"
+                                src="imagens/vidro.png"
                                 alt="Materiais recicláveis de vidro"
                                 loading="lazy"
                             >
@@ -768,7 +966,7 @@
 
                         <div class="material-imagem">
                             <img
-                                src="./imagens/metal.png"
+                                src="imagens/metal.png"
                                 alt="Materiais recicláveis de metal"
                                 loading="lazy"
                             >
